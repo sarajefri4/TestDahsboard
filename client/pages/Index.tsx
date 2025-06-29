@@ -179,12 +179,20 @@ export default function Index() {
                   </h3>
                   <div className="w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
                 </div>
-                <div className="text-3xl font-bold text-[#F0F0F0] mb-2">
-                  2,847
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="text-3xl font-bold text-[#F0F0F0]">2,847</div>
+                  <div className="text-sm font-medium text-green-400">
+                    +8.3%
+                  </div>
                 </div>
                 <div className="flex justify-between text-sm text-[rgba(240,240,240,0.7)]">
-                  <span>Recurring: 2,156</span>
-                  <span>New: 691</span>
+                  <span>
+                    Recurring: 2,156{" "}
+                    <span className="text-green-400">+5.2%</span>
+                  </span>
+                  <span>
+                    New: 691 <span className="text-green-400">+24.1%</span>
+                  </span>
                 </div>
               </div>
 
@@ -196,7 +204,12 @@ export default function Index() {
                   </h3>
                   <div className="w-3 h-3 bg-[#00604C] rounded-full animate-pulse"></div>
                 </div>
-                <div className="text-3xl font-bold text-[#F0F0F0] mb-2">47</div>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="text-3xl font-bold text-[#F0F0F0]">47</div>
+                  <div className="text-sm font-medium text-green-400">
+                    +11.9%
+                  </div>
+                </div>
                 <div className="text-sm text-[rgba(240,240,240,0.7)]">
                   +5 deployed today
                 </div>
@@ -210,8 +223,11 @@ export default function Index() {
                   </h3>
                   <div className="w-3 h-3 bg-green-400 rounded-full"></div>
                 </div>
-                <div className="text-3xl font-bold text-[#F0F0F0] mb-2">
-                  87.3%
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="text-3xl font-bold text-[#F0F0F0]">87.3%</div>
+                  <div className="text-sm font-medium text-green-400">
+                    +2.1%
+                  </div>
                 </div>
                 <div className="text-sm text-[rgba(240,240,240,0.7)]">
                   Optimal performance
@@ -229,11 +245,16 @@ export default function Index() {
                   </h3>
                   <div className="w-3 h-3 bg-purple-400 rounded-full animate-pulse"></div>
                 </div>
-                <div className="text-3xl font-bold text-[#F0F0F0] mb-2">
-                  34,821
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="text-3xl font-bold text-[#F0F0F0]">
+                    34,821
+                  </div>
+                  <div className="text-sm font-medium text-green-400">
+                    +12.0%
+                  </div>
                 </div>
                 <div className="text-sm text-[rgba(240,240,240,0.7)]">
-                  +12% from yesterday
+                  +3,731 from yesterday
                 </div>
               </div>
 
@@ -245,11 +266,14 @@ export default function Index() {
                   </h3>
                   <div className="w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
                 </div>
-                <div className="text-3xl font-bold text-[#F0F0F0] mb-2">
-                  156
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="text-3xl font-bold text-[#F0F0F0]">156</div>
+                  <div className="text-sm font-medium text-green-400">
+                    +18.9%
+                  </div>
                 </div>
                 <div className="text-sm text-[rgba(240,240,240,0.7)]">
-                  Ready for review
+                  +25 since yesterday
                 </div>
               </div>
             </div>
@@ -263,12 +287,12 @@ export default function Index() {
                 </h3>
                 <div className="space-y-3">
                   {[
-                    { name: "GPT Assistant Pro", users: 1847 },
-                    { name: "Code Helper AI", users: 1653 },
-                    { name: "Data Analyzer", users: 1421 },
-                    { name: "Content Creator", users: 1298 },
-                    { name: "Research Bot", users: 987 },
-                    { name: "Customer Support AI", users: 834 },
+                    { name: "GPT Assistant Pro", users: 1847, delta: "+5.3%" },
+                    { name: "Code Helper AI", users: 1653, delta: "+12.1%" },
+                    { name: "Data Analyzer", users: 1421, delta: "-2.4%" },
+                    { name: "Content Creator", users: 1298, delta: "+8.7%" },
+                    { name: "Research Bot", users: 987, delta: "+15.2%" },
+                    { name: "Customer Support AI", users: 834, delta: "-1.8%" },
                   ].map((agent, index) => (
                     <div
                       key={index}
@@ -280,9 +304,20 @@ export default function Index() {
                           {agent.name}
                         </span>
                       </div>
-                      <span className="text-[rgba(240,240,240,0.7)] text-sm">
-                        {agent.users.toLocaleString()} users
-                      </span>
+                      <div className="text-right">
+                        <span className="text-[rgba(240,240,240,0.7)] text-sm">
+                          {agent.users.toLocaleString()} users
+                        </span>
+                        <div
+                          className={`text-xs font-medium ${
+                            agent.delta.startsWith("+")
+                              ? "text-green-400"
+                              : "text-red-400"
+                          }`}
+                        >
+                          {agent.delta}
+                        </div>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -302,26 +337,31 @@ export default function Index() {
                           name: "Support Team A",
                           utilization: 96.4,
                           color: "#00604C",
+                          delta: "+1.2%",
                         },
                         {
                           name: "Support Team B",
                           utilization: 91.8,
                           color: "#0080FF",
+                          delta: "+3.4%",
                         },
                         {
                           name: "Technical Support",
                           utilization: 87.3,
                           color: "#8B5CF6",
+                          delta: "-0.8%",
                         },
                         {
                           name: "Escalation Team",
                           utilization: 82.7,
                           color: "#F59E0B",
+                          delta: "+5.1%",
                         },
                         {
                           name: "Training Team",
                           utilization: 75.2,
                           color: "#EF4444",
+                          delta: "-2.3%",
                         },
                       ]
                     : [
@@ -329,29 +369,49 @@ export default function Index() {
                           name: "Customer Service",
                           utilization: 94.2,
                           color: "#00604C",
+                          delta: "+1.7%",
                         },
                         {
                           name: "Development",
                           utilization: 89.7,
                           color: "#0080FF",
+                          delta: "+4.2%",
                         },
                         {
                           name: "Marketing",
                           utilization: 83.5,
                           color: "#8B5CF6",
+                          delta: "-1.3%",
                         },
-                        { name: "Sales", utilization: 78.9, color: "#F59E0B" },
+                        {
+                          name: "Sales",
+                          utilization: 78.9,
+                          color: "#F59E0B",
+                          delta: "+2.8%",
+                        },
                         {
                           name: "Research",
                           utilization: 72.1,
                           color: "#EF4444",
+                          delta: "-3.1%",
                         },
                       ]
                   ).map((division, index) => (
                     <div key={index}>
                       <div className="flex justify-between text-sm text-[#F0F0F0] mb-1">
                         <span>{division.name}</span>
-                        <span>{division.utilization}%</span>
+                        <div className="flex items-center gap-2">
+                          <span>{division.utilization}%</span>
+                          <span
+                            className={`text-xs font-medium ${
+                              division.delta.startsWith("+")
+                                ? "text-green-400"
+                                : "text-red-400"
+                            }`}
+                          >
+                            {division.delta}
+                          </span>
+                        </div>
                       </div>
                       <div className="w-full bg-[rgba(240,240,240,0.1)] rounded-full h-2">
                         <div
@@ -389,24 +449,35 @@ export default function Index() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-[#F0F0F0] mb-1">
-                    4.7
+                  <div className="flex items-center justify-center gap-2 mb-1">
+                    <div className="text-4xl font-bold text-[#F0F0F0]">4.7</div>
+                    <div className="text-sm font-medium text-green-400">
+                      +0.1
+                    </div>
                   </div>
                   <div className="text-sm text-[rgba(240,240,240,0.7)]">
                     Overall Rating
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-[#F0F0F0] mb-1">
-                    12,847
+                  <div className="flex items-center justify-center gap-2 mb-1">
+                    <div className="text-4xl font-bold text-[#F0F0F0]">
+                      12,847
+                    </div>
+                    <div className="text-sm font-medium text-green-400">
+                      +7.4%
+                    </div>
                   </div>
                   <div className="text-sm text-[rgba(240,240,240,0.7)]">
                     Total Reviews
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-bold text-[#F0F0F0] mb-1">
-                    94%
+                  <div className="flex items-center justify-center gap-2 mb-1">
+                    <div className="text-4xl font-bold text-[#F0F0F0]">94%</div>
+                    <div className="text-sm font-medium text-green-400">
+                      +2.1%
+                    </div>
                   </div>
                   <div className="text-sm text-[rgba(240,240,240,0.7)]">
                     Satisfaction Rate
@@ -446,19 +517,19 @@ export default function Index() {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
-                  { name: "Sarah Chen", visits: 847 },
-                  { name: "Michael Rodriguez", visits: 623 },
-                  { name: "Emily Johnson", visits: 591 },
-                  { name: "David Kim", visits: 478 },
-                  { name: "Jessica Brown", visits: 432 },
-                  { name: "Alex Thompson", visits: 389 },
-                  { name: "Maria Garcia", visits: 356 },
-                  { name: "James Wilson", visits: 298 },
-                  { name: "Lisa Wang", visits: 267 },
-                  { name: "Robert Davis", visits: 234 },
-                  { name: "Amanda Lee", visits: 198 },
-                  { name: "Carlos Martinez", visits: 145 },
-                  { name: "Sophie Taylor", visits: 89 },
+                  { name: "Sarah Chen", visits: 847, delta: "+23" },
+                  { name: "Michael Rodriguez", visits: 623, delta: "+15" },
+                  { name: "Emily Johnson", visits: 591, delta: "+8" },
+                  { name: "David Kim", visits: 478, delta: "-3" },
+                  { name: "Jessica Brown", visits: 432, delta: "+12" },
+                  { name: "Alex Thompson", visits: 389, delta: "+7" },
+                  { name: "Maria Garcia", visits: 356, delta: "+19" },
+                  { name: "James Wilson", visits: 298, delta: "+5" },
+                  { name: "Lisa Wang", visits: 267, delta: "-1" },
+                  { name: "Robert Davis", visits: 234, delta: "+11" },
+                  { name: "Amanda Lee", visits: 198, delta: "+6" },
+                  { name: "Carlos Martinez", visits: 145, delta: "+9" },
+                  { name: "Sophie Taylor", visits: 89, delta: "+14" },
                 ].map((user, index) => (
                   <div
                     key={index}
@@ -478,9 +549,20 @@ export default function Index() {
                       </span>
                     </div>
                     <div className="text-right">
-                      <span className="text-[#F0F0F0] text-sm font-bold">
-                        {user.visits.toLocaleString()}
-                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-[#F0F0F0] text-sm font-bold">
+                          {user.visits.toLocaleString()}
+                        </span>
+                        <span
+                          className={`text-xs font-medium ${
+                            user.delta.startsWith("+")
+                              ? "text-green-400"
+                              : "text-red-400"
+                          }`}
+                        >
+                          {user.delta}
+                        </span>
+                      </div>
                       <div className="text-xs text-[rgba(240,240,240,0.7)]">
                         visits
                       </div>
