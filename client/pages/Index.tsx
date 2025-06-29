@@ -165,6 +165,25 @@ export default function Index() {
                   </div>
                 </div>
               </div>
+
+              {/* Recurring User Percentage */}
+              <div className="bg-[rgba(240,240,240,0.05)] backdrop-blur-sm border border-[rgba(240,240,240,0.1)] rounded-lg p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-[#F0F0F0] text-lg font-medium">
+                    Recurring Users
+                  </h3>
+                  <div className="w-3 h-3 bg-[#00604C] rounded-full"></div>
+                </div>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="text-3xl font-bold text-[#F0F0F0]">75.7%</div>
+                  <div className="text-sm font-medium text-green-400">
+                    +2.4%
+                  </div>
+                </div>
+                <div className="text-sm text-[rgba(240,240,240,0.7)]">
+                  2,156 of 2,847 users
+                </div>
+              </div>
             </div>
           </div>
 
@@ -236,7 +255,7 @@ export default function Index() {
             </div>
 
             {/* Additional Metrics Row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
               {/* Messages Sent */}
               <div className="bg-[rgba(240,240,240,0.05)] backdrop-blur-sm border border-[rgba(240,240,240,0.1)] rounded-lg p-6">
                 <div className="flex items-center justify-between mb-4">
