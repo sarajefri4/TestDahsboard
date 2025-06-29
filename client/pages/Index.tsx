@@ -50,49 +50,50 @@ export default function Index() {
           {/* Main Content Container */}
           <div className="w-full max-w-[56.25rem] mx-auto mt-8 sm:mt-12 px-3">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-              {/* AI Models Active */}
+              {/* User Count */}
               <div className="bg-[rgba(240,240,240,0.05)] backdrop-blur-sm border border-[rgba(240,240,240,0.1)] rounded-lg p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-[#F0F0F0] text-lg font-medium">
-                    AI Models Active
-                  </h3>
-                  <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                </div>
-                <div className="text-3xl font-bold text-[#F0F0F0] mb-2">24</div>
-                <div className="text-sm text-[rgba(240,240,240,0.7)]">
-                  +3 from last hour
-                </div>
-              </div>
-
-              {/* Processing Tasks */}
-              <div className="bg-[rgba(240,240,240,0.05)] backdrop-blur-sm border border-[rgba(240,240,240,0.1)] rounded-lg p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-[#F0F0F0] text-lg font-medium">
-                    Processing Tasks
+                    User Count
                   </h3>
                   <div className="w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
                 </div>
                 <div className="text-3xl font-bold text-[#F0F0F0] mb-2">
-                  1,247
+                  2,847
                 </div>
-                <div className="text-sm text-[rgba(240,240,240,0.7)]">
-                  +15% vs yesterday
+                <div className="flex justify-between text-sm text-[rgba(240,240,240,0.7)]">
+                  <span>Recurring: 2,156</span>
+                  <span>New: 691</span>
                 </div>
               </div>
 
-              {/* Energy Efficiency */}
+              {/* Number of Agents */}
               <div className="bg-[rgba(240,240,240,0.05)] backdrop-blur-sm border border-[rgba(240,240,240,0.1)] rounded-lg p-6">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-[#F0F0F0] text-lg font-medium">
-                    Energy Efficiency
+                    Active Agents
                   </h3>
-                  <div className="w-3 h-3 bg-[#00604C] rounded-full"></div>
+                  <div className="w-3 h-3 bg-[#00604C] rounded-full animate-pulse"></div>
+                </div>
+                <div className="text-3xl font-bold text-[#F0F0F0] mb-2">47</div>
+                <div className="text-sm text-[rgba(240,240,240,0.7)]">
+                  +5 deployed today
+                </div>
+              </div>
+
+              {/* Utilization Percentage */}
+              <div className="bg-[rgba(240,240,240,0.05)] backdrop-blur-sm border border-[rgba(240,240,240,0.1)] rounded-lg p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-[#F0F0F0] text-lg font-medium">
+                    Utilization
+                  </h3>
+                  <div className="w-3 h-3 bg-green-400 rounded-full"></div>
                 </div>
                 <div className="text-3xl font-bold text-[#F0F0F0] mb-2">
-                  94.7%
+                  87.3%
                 </div>
                 <div className="text-sm text-[rgba(240,240,240,0.7)]">
-                  Optimal range
+                  Optimal performance
                 </div>
               </div>
             </div>
