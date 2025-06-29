@@ -372,6 +372,57 @@ export default function Index() {
               </div>
             </div>
 
+            {/* User Visit List */}
+            <div className="bg-[rgba(240,240,240,0.05)] backdrop-blur-sm border border-[rgba(240,240,240,0.1)] rounded-lg p-6 mb-6">
+              <h3 className="text-[#F0F0F0] text-xl font-medium mb-6">
+                User Activity
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {[
+                  { name: "Sarah Chen", visits: 847 },
+                  { name: "Michael Rodriguez", visits: 623 },
+                  { name: "Emily Johnson", visits: 591 },
+                  { name: "David Kim", visits: 478 },
+                  { name: "Jessica Brown", visits: 432 },
+                  { name: "Alex Thompson", visits: 389 },
+                  { name: "Maria Garcia", visits: 356 },
+                  { name: "James Wilson", visits: 298 },
+                  { name: "Lisa Wang", visits: 267 },
+                  { name: "Robert Davis", visits: 234 },
+                  { name: "Amanda Lee", visits: 198 },
+                  { name: "Carlos Martinez", visits: 145 },
+                  { name: "Sophie Taylor", visits: 89 },
+                ].map((user, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between p-3 bg-[rgba(240,240,240,0.03)] rounded border border-[rgba(240,240,240,0.05)]"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 bg-[#00604C] rounded-full flex items-center justify-center">
+                        <span className="text-[#F0F0F0] text-sm font-medium">
+                          {user.name
+                            .split(" ")
+                            .map((n) => n[0])
+                            .join("")}
+                        </span>
+                      </div>
+                      <span className="text-[#F0F0F0] text-sm font-medium">
+                        {user.name}
+                      </span>
+                    </div>
+                    <div className="text-right">
+                      <span className="text-[#F0F0F0] text-sm font-bold">
+                        {user.visits.toLocaleString()}
+                      </span>
+                      <div className="text-xs text-[rgba(240,240,240,0.7)]">
+                        visits
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* Network Status */}
             <div className="bg-[rgba(240,240,240,0.05)] backdrop-blur-sm border border-[rgba(240,240,240,0.1)] rounded-lg p-6">
               <h3 className="text-[#F0F0F0] text-xl font-medium mb-6">
