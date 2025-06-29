@@ -1,4 +1,12 @@
+import { useState } from "react";
+
 export default function Index() {
+  const [selectedOrganization, setSelectedOrganization] =
+    useState("whole-company");
+  const [selectedDateRange, setSelectedDateRange] = useState("last-month");
+
+  const isWholeDivision = selectedOrganization !== "whole-company";
+
   return (
     <div className="min-h-screen bg-[#002010] relative overflow-hidden">
       {/* Background gradient effects */}
@@ -41,6 +49,119 @@ export default function Index() {
                     >
                       AI Space Dashboard
                     </h1>
+                  </div>
+                </div>
+
+                {/* Filters */}
+                <div className="flex items-center gap-4">
+                  {/* Organization Filter */}
+                  <div className="flex flex-col gap-1">
+                    <label className="text-[rgba(240,240,240,0.7)] text-xs">
+                      Organization
+                    </label>
+                    <select
+                      value={selectedOrganization}
+                      onChange={(e) => setSelectedOrganization(e.target.value)}
+                      className="bg-[rgba(240,240,240,0.1)] border border-[rgba(240,240,240,0.2)] text-[#F0F0F0] text-sm rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#00604C]"
+                    >
+                      <option
+                        value="whole-company"
+                        className="bg-[#001008] text-[#F0F0F0]"
+                      >
+                        Whole Company
+                      </option>
+                      <option
+                        value="customer-service"
+                        className="bg-[#001008] text-[#F0F0F0]"
+                      >
+                        Customer Service
+                      </option>
+                      <option
+                        value="development"
+                        className="bg-[#001008] text-[#F0F0F0]"
+                      >
+                        Development
+                      </option>
+                      <option
+                        value="marketing"
+                        className="bg-[#001008] text-[#F0F0F0]"
+                      >
+                        Marketing
+                      </option>
+                      <option
+                        value="sales"
+                        className="bg-[#001008] text-[#F0F0F0]"
+                      >
+                        Sales
+                      </option>
+                      <option
+                        value="research"
+                        className="bg-[#001008] text-[#F0F0F0]"
+                      >
+                        Research
+                      </option>
+                    </select>
+                  </div>
+
+                  {/* Date Range Filter */}
+                  <div className="flex flex-col gap-1">
+                    <label className="text-[rgba(240,240,240,0.7)] text-xs">
+                      Date Range
+                    </label>
+                    <select
+                      value={selectedDateRange}
+                      onChange={(e) => setSelectedDateRange(e.target.value)}
+                      className="bg-[rgba(240,240,240,0.1)] border border-[rgba(240,240,240,0.2)] text-[#F0F0F0] text-sm rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#00604C]"
+                    >
+                      <option
+                        value="today"
+                        className="bg-[#001008] text-[#F0F0F0]"
+                      >
+                        Today
+                      </option>
+                      <option
+                        value="yesterday"
+                        className="bg-[#001008] text-[#F0F0F0]"
+                      >
+                        Yesterday
+                      </option>
+                      <option
+                        value="last-2-weeks"
+                        className="bg-[#001008] text-[#F0F0F0]"
+                      >
+                        Last 2 Weeks
+                      </option>
+                      <option
+                        value="last-month"
+                        className="bg-[#001008] text-[#F0F0F0]"
+                      >
+                        Last Month
+                      </option>
+                      <option
+                        value="last-3-months"
+                        className="bg-[#001008] text-[#F0F0F0]"
+                      >
+                        Last 3 Months
+                      </option>
+                      <option
+                        value="last-6-months"
+                        className="bg-[#001008] text-[#F0F0F0]"
+                      >
+                        Last 6 Months
+                      </option>
+                      <option
+                        value="last-year"
+                        className="bg-[#001008] text-[#F0F0F0]"
+                      >
+                        Last Year
+                      </option>
+                      <option
+                        value="last-5-years"
+                        className="bg-[#001008] text-[#F0F0F0]"
+                      >
+                        Last 5 Years
+                      </option>
+                    </select>
                   </div>
                 </div>
               </div>
@@ -167,27 +288,66 @@ export default function Index() {
                 </div>
               </div>
 
-              {/* Top Utilized Divisions */}
+              {/* Top Utilized Divisions/Departments */}
               <div className="bg-[rgba(240,240,240,0.05)] backdrop-blur-sm border border-[rgba(240,240,240,0.1)] rounded-lg p-6">
                 <h3 className="text-[#F0F0F0] text-lg font-medium mb-4">
-                  Top Utilized Divisions
+                  {isWholeDivision
+                    ? "Top Utilized Departments"
+                    : "Top Utilized Divisions"}
                 </h3>
                 <div className="space-y-4">
-                  {[
-                    {
-                      name: "Customer Service",
-                      utilization: 94.2,
-                      color: "#00604C",
-                    },
-                    {
-                      name: "Development",
-                      utilization: 89.7,
-                      color: "#0080FF",
-                    },
-                    { name: "Marketing", utilization: 83.5, color: "#8B5CF6" },
-                    { name: "Sales", utilization: 78.9, color: "#F59E0B" },
-                    { name: "Research", utilization: 72.1, color: "#EF4444" },
-                  ].map((division, index) => (
+                  {(isWholeDivision
+                    ? [
+                        {
+                          name: "Support Team A",
+                          utilization: 96.4,
+                          color: "#00604C",
+                        },
+                        {
+                          name: "Support Team B",
+                          utilization: 91.8,
+                          color: "#0080FF",
+                        },
+                        {
+                          name: "Technical Support",
+                          utilization: 87.3,
+                          color: "#8B5CF6",
+                        },
+                        {
+                          name: "Escalation Team",
+                          utilization: 82.7,
+                          color: "#F59E0B",
+                        },
+                        {
+                          name: "Training Team",
+                          utilization: 75.2,
+                          color: "#EF4444",
+                        },
+                      ]
+                    : [
+                        {
+                          name: "Customer Service",
+                          utilization: 94.2,
+                          color: "#00604C",
+                        },
+                        {
+                          name: "Development",
+                          utilization: 89.7,
+                          color: "#0080FF",
+                        },
+                        {
+                          name: "Marketing",
+                          utilization: 83.5,
+                          color: "#8B5CF6",
+                        },
+                        { name: "Sales", utilization: 78.9, color: "#F59E0B" },
+                        {
+                          name: "Research",
+                          utilization: 72.1,
+                          color: "#EF4444",
+                        },
+                      ]
+                  ).map((division, index) => (
                     <div key={index}>
                       <div className="flex justify-between text-sm text-[#F0F0F0] mb-1">
                         <span>{division.name}</span>
