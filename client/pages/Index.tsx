@@ -98,6 +98,163 @@ export default function Index() {
               </div>
             </div>
 
+            {/* Additional Metrics Row */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              {/* Messages Sent */}
+              <div className="bg-[rgba(240,240,240,0.05)] backdrop-blur-sm border border-[rgba(240,240,240,0.1)] rounded-lg p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-[#F0F0F0] text-lg font-medium">
+                    Messages Sent
+                  </h3>
+                  <div className="w-3 h-3 bg-purple-400 rounded-full animate-pulse"></div>
+                </div>
+                <div className="text-3xl font-bold text-[#F0F0F0] mb-2">
+                  34,821
+                </div>
+                <div className="text-sm text-[rgba(240,240,240,0.7)]">
+                  +12% from yesterday
+                </div>
+              </div>
+
+              {/* New Suggestions */}
+              <div className="bg-[rgba(240,240,240,0.05)] backdrop-blur-sm border border-[rgba(240,240,240,0.1)] rounded-lg p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-[#F0F0F0] text-lg font-medium">
+                    New Suggestions
+                  </h3>
+                  <div className="w-3 h-3 bg-yellow-400 rounded-full animate-pulse"></div>
+                </div>
+                <div className="text-3xl font-bold text-[#F0F0F0] mb-2">
+                  156
+                </div>
+                <div className="text-sm text-[rgba(240,240,240,0.7)]">
+                  Ready for review
+                </div>
+              </div>
+            </div>
+
+            {/* Most Used Agents and Top Divisions */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+              {/* Most Used Agents */}
+              <div className="bg-[rgba(240,240,240,0.05)] backdrop-blur-sm border border-[rgba(240,240,240,0.1)] rounded-lg p-6">
+                <h3 className="text-[#F0F0F0] text-lg font-medium mb-4">
+                  Most Used Agents
+                </h3>
+                <div className="space-y-3">
+                  {[
+                    { name: "GPT Assistant Pro", users: 1847 },
+                    { name: "Code Helper AI", users: 1653 },
+                    { name: "Data Analyzer", users: 1421 },
+                    { name: "Content Creator", users: 1298 },
+                    { name: "Research Bot", users: 987 },
+                    { name: "Customer Support AI", users: 834 },
+                  ].map((agent, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center justify-between"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-[#00604C] rounded-full"></div>
+                        <span className="text-[#F0F0F0] text-sm font-medium">
+                          {agent.name}
+                        </span>
+                      </div>
+                      <span className="text-[rgba(240,240,240,0.7)] text-sm">
+                        {agent.users.toLocaleString()} users
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Top Utilized Divisions */}
+              <div className="bg-[rgba(240,240,240,0.05)] backdrop-blur-sm border border-[rgba(240,240,240,0.1)] rounded-lg p-6">
+                <h3 className="text-[#F0F0F0] text-lg font-medium mb-4">
+                  Top Utilized Divisions
+                </h3>
+                <div className="space-y-4">
+                  {[
+                    {
+                      name: "Customer Service",
+                      utilization: 94.2,
+                      color: "#00604C",
+                    },
+                    {
+                      name: "Development",
+                      utilization: 89.7,
+                      color: "#0080FF",
+                    },
+                    { name: "Marketing", utilization: 83.5, color: "#8B5CF6" },
+                    { name: "Sales", utilization: 78.9, color: "#F59E0B" },
+                    { name: "Research", utilization: 72.1, color: "#EF4444" },
+                  ].map((division, index) => (
+                    <div key={index}>
+                      <div className="flex justify-between text-sm text-[#F0F0F0] mb-1">
+                        <span>{division.name}</span>
+                        <span>{division.utilization}%</span>
+                      </div>
+                      <div className="w-full bg-[rgba(240,240,240,0.1)] rounded-full h-2">
+                        <div
+                          className="h-2 rounded-full transition-all duration-300"
+                          style={{
+                            width: `${division.utilization}%`,
+                            backgroundColor: division.color,
+                          }}
+                        ></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Average Rating */}
+            <div className="bg-[rgba(240,240,240,0.05)] backdrop-blur-sm border border-[rgba(240,240,240,0.1)] rounded-lg p-6 mb-8">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-[#F0F0F0] text-xl font-medium">
+                  Average Agent Rating
+                </h3>
+                <div className="flex items-center gap-1">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <svg
+                      key={star}
+                      className={`w-5 h-5 ${star <= 4.7 ? "text-yellow-400" : "text-[rgba(240,240,240,0.3)]"}`}
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-[#F0F0F0] mb-1">
+                    4.7
+                  </div>
+                  <div className="text-sm text-[rgba(240,240,240,0.7)]">
+                    Overall Rating
+                  </div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-[#F0F0F0] mb-1">
+                    12,847
+                  </div>
+                  <div className="text-sm text-[rgba(240,240,240,0.7)]">
+                    Total Reviews
+                  </div>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-bold text-[#F0F0F0] mb-1">
+                    94%
+                  </div>
+                  <div className="text-sm text-[rgba(240,240,240,0.7)]">
+                    Satisfaction Rate
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* System Performance Chart */}
             <div className="bg-[rgba(240,240,240,0.05)] backdrop-blur-sm border border-[rgba(240,240,240,0.1)] rounded-lg p-6 mb-6">
               <h3 className="text-[#F0F0F0] text-xl font-medium mb-6">
