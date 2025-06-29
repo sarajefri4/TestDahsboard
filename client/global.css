@@ -54,6 +54,13 @@
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Dashboard specific colors */
+    --dashboard-green-light: 162 100% 6.3%; /* #002010 */
+    --dashboard-green-dark: 120 100% 3.1%; /* #001008 */
+    --dashboard-green-accent: 162 100% 18.8%; /* #00604C */
+    --dashboard-text: 0 0% 94.1%; /* #F0F0F0 */
+    --dashboard-border: 0 0% 94.1% / 0.15; /* rgba(240, 240, 240, 0.15) */
   }
 
   .dark {
